@@ -39,7 +39,7 @@ export default function Home({ }) {
         async function fetchWeather() {
             const weatherResponse = await MeteoAPI.fetchWeatherFromCoords(coords);
             setWeather({
-                j0: {
+                d0: {
                     temperature: weatherResponse.current_weather.temperature,
                     windspeed: weatherResponse.current_weather.windspeed,
                     sunrise: weatherResponse.daily.sunrise[0].slice(-5),
@@ -64,15 +64,15 @@ export default function Home({ }) {
                 <View style={s.topSubContainer}>
                     <View style={s.leftSideContainer}>
                         <CityTitle city={city}></CityTitle>
-                        <Temperature weather={weather?.j0.temperature} />
+                        <Temperature weather={weather?.d0.temperature} />
                     </View>
                     <View style={s.rightSideContainer}>
                         <View style={{ gap: 30 }}>
                             <Clock />
-                            <WeatherLabel label={weather?.j0.label} />
+                            <WeatherLabel label={weather?.d0.label} />
                         </View>
                         <Image
-                            source={weather?.j0.image}
+                            source={weather?.d0.image}
                             style={{ width: 100, height: 100, }}
                         />
                     </View>
@@ -80,15 +80,15 @@ export default function Home({ }) {
             </View >
             <View style={s.bottomContainer}>
                 <View style={s.bottomElement}>
-                    <Text style={s.bottomTitle}>{weather?.j0.sunrise}</Text>
+                    <Text style={s.bottomTitle}>{weather?.d0.sunrise}</Text>
                     <Text style={s.bottomText}>Aube</Text>
                 </View>
                 <View style={s.bottomElement}>
-                    <Text style={s.bottomTitle}>{weather?.j0.sunset}</Text>
+                    <Text style={s.bottomTitle}>{weather?.d0.sunset}</Text>
                     <Text style={s.bottomText}>Crépuscule</Text>
                 </View>
                 <View style={s.bottomElement}>
-                    <Text style={s.bottomTitle}>{weather?.j0.windspeed} km/h</Text>
+                    <Text style={s.bottomTitle}>{weather?.d0.windspeed} km/h</Text>
                     <Text style={s.bottomText}>Vent</Text>
                 </View>
             </View>
